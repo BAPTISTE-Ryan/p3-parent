@@ -84,7 +84,13 @@
 			<groupId>org.occ.p3</groupId>
 			<artifactId>bibliot-service</artifactId>
 		</dependency>
-
+		
+<!-- 		<dependency> -->
+<!-- 			<groupId>org.occ.p3</groupId> -->
+<!-- 			<artifactId>batchBatch</artifactId> -->
+<!-- 			<version>0.0.1-SNAPSHOT</version> -->
+<!-- 		</dependency> -->
+ 
 		<dependency>
 			<groupId>org.occ.p3</groupId>
 			<artifactId>bibliot-model</artifactId>

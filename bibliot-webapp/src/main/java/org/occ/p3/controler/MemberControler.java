@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import org.occ.p3.consumer.repository.UserRepository;
 import org.occ.p3.model.Borrow;
 import org.occ.p3.model.User;
+import org.occ.p3.service.BatchService;
+ 
 import org.occ.p3.service.BorrowService;
 import org.occ.p3.service.MemberService;
 import org.occ.p3.service.UserService;
@@ -36,6 +38,9 @@ public class MemberControler {
 	@Autowired
 	UserService userService;
 
+	@Autowired 
+	BatchService batchservice;
+	
 	@Autowired
 	MemberService memberservice;
 
@@ -49,6 +54,8 @@ public class MemberControler {
 	public ModelAndView loginPage(ModelMap model, HttpServletRequest request) {
 		ModelAndView m = new ModelAndView();
 
+		
+ 
 		if (request.getSession().getAttribute("connected") != null) {
 			/* (boolean) request.getSession().getAttribute("connected") */
 			if (request.getSession().getAttribute("userId") != null) {

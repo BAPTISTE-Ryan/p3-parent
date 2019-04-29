@@ -10,18 +10,30 @@ import javax.mail.Session;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+ 
+import org.springframework.beans.factory.annotation.Autowired;
+
+ 
 public class mailsendtest {
 
 	
-	
-	
+ 
 	
 	
 	public static void main(String[] args)
 	  {
+		
+		
+		
+		
+		
+		
+		
+		
 		 System.out.println("inside");
 		 send("mr.ryan.baptiste@gmail.com",pdp,"mr.ryan.baptiste@gmail.com",
-				  "javatpoint","###########################################################################################");	  send("mr.ryan.baptiste@gmail.com",pdp,"mr.ryan.baptiste@gmail.com",
+				  "javatpoint","###########################################################################################");	  
+		 send("mr.ryan.baptiste@gmail.com",pdp,"mr.ryan.baptiste@gmail.com",
 						  "javatpoint","###########################################################################################");
 				
 }
@@ -39,7 +51,7 @@ public class mailsendtest {
 	
 	
 	 
- 	public static String pdp="registre";
+ 	public static String pdp="restauration";
 	
 	 public static int getDays(GregorianCalendar g1, GregorianCalendar g2) {
 		  int elapsed = 0;

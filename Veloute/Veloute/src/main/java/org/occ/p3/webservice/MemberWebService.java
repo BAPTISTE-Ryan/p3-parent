@@ -43,6 +43,51 @@ public interface MemberWebService {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getMemberByAddress", targetNamespace = "http://webservice.p3.occ.org/", className = "org.occ.p3.webservice.GetMemberByAddress")
+    @ResponseWrapper(localName = "getMemberByAddressResponse", targetNamespace = "http://webservice.p3.occ.org/", className = "org.occ.p3.webservice.GetMemberByAddressResponse")
+    @Action(input = "http://webservice.p3.occ.org/MemberWebService/getMemberByAddressRequest", output = "http://webservice.p3.occ.org/MemberWebService/getMemberByAddressResponse")
+    public List<Member> getMemberByAddress(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns java.util.List<org.occ.p3.webservice.Member>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getMemberByBirthdate", targetNamespace = "http://webservice.p3.occ.org/", className = "org.occ.p3.webservice.GetMemberByBirthdate")
+    @ResponseWrapper(localName = "getMemberByBirthdateResponse", targetNamespace = "http://webservice.p3.occ.org/", className = "org.occ.p3.webservice.GetMemberByBirthdateResponse")
+    @Action(input = "http://webservice.p3.occ.org/MemberWebService/getMemberByBirthdateRequest", output = "http://webservice.p3.occ.org/MemberWebService/getMemberByBirthdateResponse")
+    public List<Member> getMemberByBirthdate(
+        @WebParam(name = "arg0", targetNamespace = "")
+        XMLGregorianCalendar arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns java.util.List<org.occ.p3.webservice.Member>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getMemberByEmailadress", targetNamespace = "http://webservice.p3.occ.org/", className = "org.occ.p3.webservice.GetMemberByEmailadress")
+    @ResponseWrapper(localName = "getMemberByEmailadressResponse", targetNamespace = "http://webservice.p3.occ.org/", className = "org.occ.p3.webservice.GetMemberByEmailadressResponse")
+    @Action(input = "http://webservice.p3.occ.org/MemberWebService/getMemberByEmailadressRequest", output = "http://webservice.p3.occ.org/MemberWebService/getMemberByEmailadressResponse")
+    public List<Member> getMemberByEmailadress(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns java.util.List<org.occ.p3.webservice.Member>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "getMemberByName", targetNamespace = "http://webservice.p3.occ.org/", className = "org.occ.p3.webservice.GetMemberByName")
     @ResponseWrapper(localName = "getMemberByNameResponse", targetNamespace = "http://webservice.p3.occ.org/", className = "org.occ.p3.webservice.GetMemberByNameResponse")
     @Action(input = "http://webservice.p3.occ.org/MemberWebService/getMemberByNameRequest", output = "http://webservice.p3.occ.org/MemberWebService/getMemberByNameResponse")
@@ -79,50 +124,5 @@ public interface MemberWebService {
     public Member saveNewMember(
         @WebParam(name = "arg0", targetNamespace = "")
         Member arg0);
-
-    /**
-     * 
-     * @param arg0
-     * @return
-     *     returns java.util.List<org.occ.p3.webservice.Member>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getMemberByBirthdate", targetNamespace = "http://webservice.p3.occ.org/", className = "org.occ.p3.webservice.GetMemberByBirthdate")
-    @ResponseWrapper(localName = "getMemberByBirthdateResponse", targetNamespace = "http://webservice.p3.occ.org/", className = "org.occ.p3.webservice.GetMemberByBirthdateResponse")
-    @Action(input = "http://webservice.p3.occ.org/MemberWebService/getMemberByBirthdateRequest", output = "http://webservice.p3.occ.org/MemberWebService/getMemberByBirthdateResponse")
-    public List<Member> getMemberByBirthdate(
-        @WebParam(name = "arg0", targetNamespace = "")
-        XMLGregorianCalendar arg0);
-
-    /**
-     * 
-     * @param arg0
-     * @return
-     *     returns java.util.List<org.occ.p3.webservice.Member>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getMemberByAddress", targetNamespace = "http://webservice.p3.occ.org/", className = "org.occ.p3.webservice.GetMemberByAddress")
-    @ResponseWrapper(localName = "getMemberByAddressResponse", targetNamespace = "http://webservice.p3.occ.org/", className = "org.occ.p3.webservice.GetMemberByAddressResponse")
-    @Action(input = "http://webservice.p3.occ.org/MemberWebService/getMemberByAddressRequest", output = "http://webservice.p3.occ.org/MemberWebService/getMemberByAddressResponse")
-    public List<Member> getMemberByAddress(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
-
-    /**
-     * 
-     * @param arg0
-     * @return
-     *     returns java.util.List<org.occ.p3.webservice.Member>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getMemberByEmailadress", targetNamespace = "http://webservice.p3.occ.org/", className = "org.occ.p3.webservice.GetMemberByEmailadress")
-    @ResponseWrapper(localName = "getMemberByEmailadressResponse", targetNamespace = "http://webservice.p3.occ.org/", className = "org.occ.p3.webservice.GetMemberByEmailadressResponse")
-    @Action(input = "http://webservice.p3.occ.org/MemberWebService/getMemberByEmailadressRequest", output = "http://webservice.p3.occ.org/MemberWebService/getMemberByEmailadressResponse")
-    public List<Member> getMemberByEmailadress(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
 
 }

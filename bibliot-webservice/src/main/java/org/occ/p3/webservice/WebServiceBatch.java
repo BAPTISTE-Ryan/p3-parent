@@ -3,6 +3,10 @@ package org.occ.p3.webservice;
  
 
 
+ 
+import org.occ.p3.classes.ListClass.MyList;
+//import org.occ.p3.batch.BatchTesting;
+//import org.occ.p3.batch.Test;
 import org.occ.p3.model.Borrow;
 import org.occ.p3.model.Work;
 import org.occ.p3.service.MemberService;
@@ -44,15 +48,17 @@ public class WebServiceBatch
 	static
 	BatchServiceImpl batchServiceimpl = new BatchServiceImpl();
 
-	@Autowired
-	BatchService batchService;
-
+	 @Autowired	 BatchService batchService;
+		 //@Autowired  BatchTesting         batchtesting;
+		 //BatchTesting bts = new BatchTesting();
 	 @WebMethod	 public  void send( String to,String sub,String msg){batchService.send(   to, sub, msg);}  
 	 @WebMethod	 public  void mailMethodOne(){batchService.mailMethodOne();} 
 	 @WebMethod	 public  void mailMethodTwo(){batchService.mailMethodTwo();}  
 	 @WebMethod	 public  void mailMethodThree(javax.mail.Session session, String to,String sub,String msg){batchService.mailMethodThree(session,to, sub, msg);}  
 	 @WebMethod	 public  void send1( String to,String sub,String msg){batchServiceimpl.send(to, sub, msg);}  
-		
+		 //@WebMethod  public  void testing() {test.testing();}
+		 //@WebMethod  public  void testing2() {Test.main(null);}
+		 //@WebMethod  public  void testing3() {test.main(null);}
  
 		 BatchServiceImpl bs = new BatchServiceImpl();
 	 @WebMethod	 public  void send2( String to,String sub,String msg){
@@ -63,7 +69,15 @@ public class WebServiceBatch
 	 
 	 }  
 	 
-
+	 @WebMethod
+	 public List<MyList> retardUtilisateur() {
+	  return batchService.retardUtilisateurs();
+	 }
+	 
+	 
+	 
+	 
+	 
 	 /*
 
 	@Autowired

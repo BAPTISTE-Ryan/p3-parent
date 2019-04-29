@@ -41,6 +41,21 @@ public interface UserWebService {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getUserByPassword", targetNamespace = "http://webservice.p3.occ.org/", className = "org.occ.p3.webservice.GetUserByPassword")
+    @ResponseWrapper(localName = "getUserByPasswordResponse", targetNamespace = "http://webservice.p3.occ.org/", className = "org.occ.p3.webservice.GetUserByPasswordResponse")
+    @Action(input = "http://webservice.p3.occ.org/UserWebService/getUserByPasswordRequest", output = "http://webservice.p3.occ.org/UserWebService/getUserByPasswordResponse")
+    public User getUserByPassword(
+        @WebParam(name = "arg0", targetNamespace = "")
+        int arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns org.occ.p3.webservice.User
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "getUserById", targetNamespace = "http://webservice.p3.occ.org/", className = "org.occ.p3.webservice.GetUserById")
     @ResponseWrapper(localName = "getUserByIdResponse", targetNamespace = "http://webservice.p3.occ.org/", className = "org.occ.p3.webservice.GetUserByIdResponse")
     @Action(input = "http://webservice.p3.occ.org/UserWebService/getUserByIdRequest", output = "http://webservice.p3.occ.org/UserWebService/getUserByIdResponse")
@@ -95,20 +110,5 @@ public interface UserWebService {
     public User saveNewUser(
         @WebParam(name = "arg0", targetNamespace = "")
         User arg0);
-
-    /**
-     * 
-     * @param arg0
-     * @return
-     *     returns org.occ.p3.webservice.User
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getUserByPassword", targetNamespace = "http://webservice.p3.occ.org/", className = "org.occ.p3.webservice.GetUserByPassword")
-    @ResponseWrapper(localName = "getUserByPasswordResponse", targetNamespace = "http://webservice.p3.occ.org/", className = "org.occ.p3.webservice.GetUserByPasswordResponse")
-    @Action(input = "http://webservice.p3.occ.org/UserWebService/getUserByPasswordRequest", output = "http://webservice.p3.occ.org/UserWebService/getUserByPasswordResponse")
-    public User getUserByPassword(
-        @WebParam(name = "arg0", targetNamespace = "")
-        int arg0);
 
 }

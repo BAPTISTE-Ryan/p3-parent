@@ -1,8 +1,10 @@
 
 package org.occ.p3.webservice;
 
+import java.util.List;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
+import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.ws.Action;
@@ -31,45 +33,6 @@ public interface BatchWebService {
     @ResponseWrapper(localName = "initResponse", targetNamespace = "http://webservice.p3.occ.org/", className = "org.occ.p3.webservice.InitResponse")
     @Action(input = "http://webservice.p3.occ.org/BatchWebService/initRequest", output = "http://webservice.p3.occ.org/BatchWebService/initResponse")
     public void init();
-
-    /**
-     * 
-     */
-    @WebMethod
-    @RequestWrapper(localName = "mailMethodOne", targetNamespace = "http://webservice.p3.occ.org/", className = "org.occ.p3.webservice.MailMethodOne")
-    @ResponseWrapper(localName = "mailMethodOneResponse", targetNamespace = "http://webservice.p3.occ.org/", className = "org.occ.p3.webservice.MailMethodOneResponse")
-    @Action(input = "http://webservice.p3.occ.org/BatchWebService/mailMethodOneRequest", output = "http://webservice.p3.occ.org/BatchWebService/mailMethodOneResponse")
-    public void mailMethodOne();
-
-    /**
-     * 
-     */
-    @WebMethod
-    @RequestWrapper(localName = "mailMethodTwo", targetNamespace = "http://webservice.p3.occ.org/", className = "org.occ.p3.webservice.MailMethodTwo")
-    @ResponseWrapper(localName = "mailMethodTwoResponse", targetNamespace = "http://webservice.p3.occ.org/", className = "org.occ.p3.webservice.MailMethodTwoResponse")
-    @Action(input = "http://webservice.p3.occ.org/BatchWebService/mailMethodTwoRequest", output = "http://webservice.p3.occ.org/BatchWebService/mailMethodTwoResponse")
-    public void mailMethodTwo();
-
-    /**
-     * 
-     * @param arg3
-     * @param arg2
-     * @param arg1
-     * @param arg0
-     */
-    @WebMethod
-    @RequestWrapper(localName = "mailMethodThree", targetNamespace = "http://webservice.p3.occ.org/", className = "org.occ.p3.webservice.MailMethodThree")
-    @ResponseWrapper(localName = "mailMethodThreeResponse", targetNamespace = "http://webservice.p3.occ.org/", className = "org.occ.p3.webservice.MailMethodThreeResponse")
-    @Action(input = "http://webservice.p3.occ.org/BatchWebService/mailMethodThreeRequest", output = "http://webservice.p3.occ.org/BatchWebService/mailMethodThreeResponse")
-    public void mailMethodThree(
-        @WebParam(name = "arg0", targetNamespace = "")
-        Session arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        String arg1,
-        @WebParam(name = "arg2", targetNamespace = "")
-        String arg2,
-        @WebParam(name = "arg3", targetNamespace = "")
-        String arg3);
 
     /**
      * 
@@ -109,6 +72,36 @@ public interface BatchWebService {
 
     /**
      * 
+     * @param arg3
+     * @param arg2
+     * @param arg1
+     * @param arg0
+     */
+    @WebMethod
+    @RequestWrapper(localName = "mailMethodThree", targetNamespace = "http://webservice.p3.occ.org/", className = "org.occ.p3.webservice.MailMethodThree")
+    @ResponseWrapper(localName = "mailMethodThreeResponse", targetNamespace = "http://webservice.p3.occ.org/", className = "org.occ.p3.webservice.MailMethodThreeResponse")
+    @Action(input = "http://webservice.p3.occ.org/BatchWebService/mailMethodThreeRequest", output = "http://webservice.p3.occ.org/BatchWebService/mailMethodThreeResponse")
+    public void mailMethodThree(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Session arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        String arg1,
+        @WebParam(name = "arg2", targetNamespace = "")
+        String arg2,
+        @WebParam(name = "arg3", targetNamespace = "")
+        String arg3);
+
+    /**
+     * 
+     */
+    @WebMethod
+    @RequestWrapper(localName = "mailMethodOne", targetNamespace = "http://webservice.p3.occ.org/", className = "org.occ.p3.webservice.MailMethodOne")
+    @ResponseWrapper(localName = "mailMethodOneResponse", targetNamespace = "http://webservice.p3.occ.org/", className = "org.occ.p3.webservice.MailMethodOneResponse")
+    @Action(input = "http://webservice.p3.occ.org/BatchWebService/mailMethodOneRequest", output = "http://webservice.p3.occ.org/BatchWebService/mailMethodOneResponse")
+    public void mailMethodOne();
+
+    /**
+     * 
      * @param arg2
      * @param arg1
      * @param arg0
@@ -124,5 +117,26 @@ public interface BatchWebService {
         String arg1,
         @WebParam(name = "arg2", targetNamespace = "")
         String arg2);
+
+    /**
+     * 
+     */
+    @WebMethod
+    @RequestWrapper(localName = "mailMethodTwo", targetNamespace = "http://webservice.p3.occ.org/", className = "org.occ.p3.webservice.MailMethodTwo")
+    @ResponseWrapper(localName = "mailMethodTwoResponse", targetNamespace = "http://webservice.p3.occ.org/", className = "org.occ.p3.webservice.MailMethodTwoResponse")
+    @Action(input = "http://webservice.p3.occ.org/BatchWebService/mailMethodTwoRequest", output = "http://webservice.p3.occ.org/BatchWebService/mailMethodTwoResponse")
+    public void mailMethodTwo();
+
+    /**
+     * 
+     * @return
+     *     returns java.util.List<org.occ.p3.webservice.MyList>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "retardUtilisateur", targetNamespace = "http://webservice.p3.occ.org/", className = "org.occ.p3.webservice.RetardUtilisateur")
+    @ResponseWrapper(localName = "retardUtilisateurResponse", targetNamespace = "http://webservice.p3.occ.org/", className = "org.occ.p3.webservice.RetardUtilisateurResponse")
+    @Action(input = "http://webservice.p3.occ.org/BatchWebService/retardUtilisateurRequest", output = "http://webservice.p3.occ.org/BatchWebService/retardUtilisateurResponse")
+    public List<MyList> retardUtilisateur();
 
 }

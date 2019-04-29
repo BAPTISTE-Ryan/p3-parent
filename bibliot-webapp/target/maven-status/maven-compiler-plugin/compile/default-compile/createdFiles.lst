@@ -1,4 +1,5 @@
 org\occ\p3\controler\MemberControler.class
 org\occ\p3\controler\BookControler.class
 org\occ\p3\controler\WorkControler.class
+org\occ\p3\controler\Name.class
 org\occ\p3\controler\BorrowControler.class

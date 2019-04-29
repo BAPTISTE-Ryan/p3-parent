@@ -30,6 +30,7 @@ public class ObjectFactory {
     private final static QName _SendResponse_QNAME = new QName("http://webservice.p3.occ.org/", "sendResponse");
     private final static QName _MailMethodThree_QNAME = new QName("http://webservice.p3.occ.org/", "mailMethodThree");
     private final static QName _InitResponse_QNAME = new QName("http://webservice.p3.occ.org/", "initResponse");
+    private final static QName _RetardUtilisateurResponse_QNAME = new QName("http://webservice.p3.occ.org/", "retardUtilisateurResponse");
     private final static QName _Init_QNAME = new QName("http://webservice.p3.occ.org/", "init");
     private final static QName _MailMethodThreeResponse_QNAME = new QName("http://webservice.p3.occ.org/", "mailMethodThreeResponse");
     private final static QName _MailMethodTwoResponse_QNAME = new QName("http://webservice.p3.occ.org/", "mailMethodTwoResponse");
@@ -37,6 +38,7 @@ public class ObjectFactory {
     private final static QName _Send_QNAME = new QName("http://webservice.p3.occ.org/", "send");
     private final static QName _Send2Response_QNAME = new QName("http://webservice.p3.occ.org/", "send2Response");
     private final static QName _Send1Response_QNAME = new QName("http://webservice.p3.occ.org/", "send1Response");
+    private final static QName _RetardUtilisateur_QNAME = new QName("http://webservice.p3.occ.org/", "retardUtilisateur");
     private final static QName _MailMethodTwo_QNAME = new QName("http://webservice.p3.occ.org/", "mailMethodTwo");
 
     /**
@@ -68,6 +70,14 @@ public class ObjectFactory {
      */
     public InitResponse createInitResponse() {
         return new InitResponse();
+    }
+
+    /**
+     * Create an instance of {@link RetardUtilisateurResponse }
+     * 
+     */
+    public RetardUtilisateurResponse createRetardUtilisateurResponse() {
+        return new RetardUtilisateurResponse();
     }
 
     /**
@@ -119,6 +129,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link RetardUtilisateur }
+     * 
+     */
+    public RetardUtilisateur createRetardUtilisateur() {
+        return new RetardUtilisateur();
+    }
+
+    /**
      * Create an instance of {@link Send1Response }
      * 
      */
@@ -164,6 +182,14 @@ public class ObjectFactory {
      */
     public Session createSession() {
         return new Session();
+    }
+
+    /**
+     * Create an instance of {@link MyList }
+     * 
+     */
+    public MyList createMyList() {
+        return new MyList();
     }
 
     /**
@@ -237,6 +263,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link RetardUtilisateurResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice.p3.occ.org/", name = "retardUtilisateurResponse")
+    public JAXBElement<RetardUtilisateurResponse> createRetardUtilisateurResponse(RetardUtilisateurResponse value) {
+        return new JAXBElement<RetardUtilisateurResponse>(_RetardUtilisateurResponse_QNAME, RetardUtilisateurResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link Init }{@code >}}
      * 
      */
@@ -297,6 +332,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://webservice.p3.occ.org/", name = "send1Response")
     public JAXBElement<Send1Response> createSend1Response(Send1Response value) {
         return new JAXBElement<Send1Response>(_Send1Response_QNAME, Send1Response.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link RetardUtilisateur }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://webservice.p3.occ.org/", name = "retardUtilisateur")
+    public JAXBElement<RetardUtilisateur> createRetardUtilisateur(RetardUtilisateur value) {
+        return new JAXBElement<RetardUtilisateur>(_RetardUtilisateur_QNAME, RetardUtilisateur.class, null, value);
     }
 
     /**

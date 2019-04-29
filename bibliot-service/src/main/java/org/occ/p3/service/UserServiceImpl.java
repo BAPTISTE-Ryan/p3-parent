@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService {
 
 	@Autowired
-	UserRepository userRepository;
+	UserRepository userRepository; 
 
 	public User getUserById(Integer userId) {
 		User userGotFromConsumer = userRepository.findById(userId).get();

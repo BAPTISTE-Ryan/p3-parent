@@ -6,7 +6,7 @@ import java.util.List;
 import org.occ.p3.model.Member;
 import org.occ.p3.model.User;
 
-public interface MemberService {
+public interface MemberService { 
 
 
     
