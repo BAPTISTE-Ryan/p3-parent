@@ -28,11 +28,11 @@
 					<configuration>
 						<sourceDestDir>${project.basedir}/src/main/java/</sourceDestDir>
 						<wsdlUrls>
-							<wsdlUrl>http://lfr028236:8080/bibliot-webservice-new/ws/WorkWebService?wsdl</wsdlUrl>
-							<wsdlUrl>http://lfr028236:8080/bibliot-webservice-new/ws/UserWebService?wsdl</wsdlUrl>
-							<wsdlUrl>http://lfr028236:8080/bibliot-webservice-new/ws/BorrowWebService?wsdl</wsdlUrl>
-							<wsdlUrl>http://lfr028236:8080/bibliot-webservice-new/ws/MemberWebService?wsdl</wsdlUrl>
-							<wsdlUrl>http://lfr028236:8080/bibliot-webservice-new/ws/WebServiceBatch?wsdl</wsdlUrl>
+							<wsdlUrl>http://localhost:8080/bibliot-webservice-new/ws/WorkWebService?wsdl</wsdlUrl>
+							<wsdlUrl>http://localhost:8080/bibliot-webservice-new/ws/UserWebService?wsdl</wsdlUrl>
+							<wsdlUrl>http://localhost:8080/bibliot-webservice-new/ws/BorrowWebService?wsdl</wsdlUrl>
+							<wsdlUrl>http://localhost:8080/bibliot-webservice-new/ws/MemberWebService?wsdl</wsdlUrl>
+							<wsdlUrl>http://localhost:8080/bibliot-webservice-new/ws/WebServiceBatch?wsdl</wsdlUrl>
 						</wsdlUrls>
 						<encoding>UTF-8</encoding>
 						</configuration>
