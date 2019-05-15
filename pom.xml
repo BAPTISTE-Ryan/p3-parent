@@ -228,8 +228,7 @@
 		<module>bibliot-service</module>
 		<module>bibliot-consumer</module>
 		<module>bibliot-model</module> 
-		<module>bibliot-batch</module> 
-		<module>batch</module> 
+		
 
 	</modules>
 
