@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>  
-<title>Login</title>
+<title>Connexion</title>
 </head>
 
 <body class="text-center"> 
@@ -27,34 +27,6 @@
 <br>
 <br>
 <br>
-	
-<!-- 
-	<div class="view"
-		style="background-image: url('https://www.ibraaz.org/usr/library/images/main/essay_ambs007_1.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
-	
-	<div class="col-sm-3" >
-	<form action="/bibliot-webapp/authentificate">
-				<div class="input-group">
-					<span class="input-group-addon"><i
-						class="glyphicon glyphicon-user"></i></span> <input id="username"
-						type="text" class="form-control" name="user" placeholder="Username">
-				</div>
-				<div class="input-group">
-					<span class="input-group-addon"><i
-						class="glyphicon glyphicon-lock"></i></span> <input id="password"
-						type="password" class="form-control" name="password"
-						placeholder="Password">
-				</div>
-
-	  <button type="submit" class="btn btn-default">Submit</button>
-
-			</form>
-	</div>
-	</div>
-	<div class="container">
-</div> 
-
--->
 
 <div class="col-sm-10 row align-items-center " >
 <div class="col-sm-3  " >
