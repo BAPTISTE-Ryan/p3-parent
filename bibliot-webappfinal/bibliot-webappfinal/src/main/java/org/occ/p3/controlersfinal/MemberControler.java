@@ -24,20 +24,6 @@ import org.occ.p3.webservice.UserWebServiceWeb;
 @SuppressWarnings("unused")
 @Controller
 public class MemberControler {
-	/*
-	 * SET @@global.time_zone = '+00:00'; SET @@session.time_zone = '+00:00';
-	 * SELECT @@global.time_zone, @@session.time_zone;
-	 */
-
-	// TODO PUT THESE THINGS IN THE CORRECT SERVICES
-
-	 
-
-//	WebServiceClient borrowService = new WebServiceClient();
-	
-	//WebServiceClient userService   = new WebServiceClient();
-
-	//WebServiceClient memberservice = new WebServiceClient();
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String entryPoint(ModelMap model, HttpServletRequest request) {
@@ -84,10 +70,6 @@ public class MemberControler {
 				m.setViewName("userPAGES.jsp");
 
 				System.out.println("userPages");
-				//System.out.println(memberservice.getMemberById(globalUserMemberId).getCurrentBorrows().toString());
-				//request.getSession().setAttribute("currentBorrows",
-				//		memberservice.getMemberById((Integer) request.getSession().getAttribute("userId"))
-				//				.getCurrentBorrows().toString());
 			} else {
 
 				m.setViewName("loginPAGES.jsp");
@@ -170,9 +152,7 @@ public class MemberControler {
 			toReturn.addObject("message", "Connection sucessful with id" + userId);
 			toReturn.addObject("userName", "<div></div> <br> -> User :" + userName);
 			request.getSession().setAttribute("user", user);
-			//request.getSession().setAttribute("currentBorrows",
-			//		memberservice.getMemberById((Integer) request.getSession().getAttribute("userId"))
-			//				.getCurrentBorrows().toString());
+			.getCurrentBorrows().toString());
 
 		} else {
 			toReturn.setViewName("mainPAGES.jsp");
