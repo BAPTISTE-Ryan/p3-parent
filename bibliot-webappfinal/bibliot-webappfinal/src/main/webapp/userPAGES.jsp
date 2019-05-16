@@ -15,7 +15,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   
-  <title>Document</title>
+  <title>Page Utilisateur</title>
 </head>
 
 <body>
@@ -26,13 +26,7 @@
 <br>
 <br>
 <br>
- <!-- 
-<div id="conteneur">
-    <div class="element">How to get muscle on a water diet <br>initial date:21 11 2018 <br>due date:21 12 2018 <br>extended:No</div>
-    <div class="element">JOHN Cena <br>registered since 21 December 2012 <br>Active borrow: How to get muscle on a water diet</div>
-    <div class="element"> past borrows :how to get muscle... <br>how to tune your car <br> how to raise your dog <br> what phone to buy for your daughter</div>
-    <div class="element">
- -->
+
   
  
 
@@ -89,7 +83,7 @@
 
 
 
-							<a href="${pageContext.request.contextPath}/borrowlist">Prêts en cours <span class="badge">${count}</span></a><br>
+							<a href="${pageContext.request.contextPath}/borrowlist">PrÃªts en cours <span class="badge">${count}</span></a><br>
 					</div>
 				</div>
 			</div>
@@ -103,7 +97,7 @@
 			</div>
 			<div class="col-sm-3" >
 				<div class="panel panel-warning">
-					<div class="panel-heading">Historique des prêts récents</div>
+					<div class="panel-heading">Historique des prÃªts rÃ©cents</div>
 					 
 						<c:forEach items="${listofsomebooks}" var="borrows">
 							
@@ -115,7 +109,7 @@
 			</div>
 			<div class="col-sm-3" >
 				<div class="panel panel-warning">
-					<div class="panel-heading">Dernier livre emprunté</div>
+					<div class="panel-heading">Dernier livre empruntÃ©</div>
 					<div class="panel-body">${firstBookTitleBorrow} <span class="label label-default">${firstBookAuthorBorrow}</span></div>
 				</div>
 			</div>
