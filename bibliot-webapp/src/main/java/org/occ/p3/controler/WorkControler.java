@@ -9,14 +9,13 @@ import org.occ.p3.model.Work;
 import org.occ.p3.service.MemberService;
 import org.occ.p3.service.WorkService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.View;
 
 @Controller
 public class WorkControler {
@@ -26,8 +25,6 @@ public class WorkControler {
 
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public ModelAndView home(ModelMap model, HttpServletRequest request) {
-		System.out.println("voucher biking chocolate in spoonfed vanilla outRun");
-
 		if (request.getSession().getAttribute("connected") != null
 				&& request.getSession().getAttribute("connected").equals("true")) {
 			request.getSession().setAttribute("currentBorrows",
@@ -53,17 +50,15 @@ public class WorkControler {
 		return new ModelAndView("mainPAGES.jsp");
 	}
 
-	// loginPage
+
 	@Autowired
 	WorkService workservice;
 
 	@RequestMapping(value = "/homePage", method = RequestMethod.GET)
 	public ModelAndView homePage(ModelMap model, HttpServletRequest request) {
-		System.out.println("voucher biking chocolate in spoonfed vanilla outRun");
 		return new ModelAndView("homePage.jsp");
 	}
 
-//
 	@RequestMapping(value = "/searchByAuthor", method = RequestMethod.POST)
 	public ModelAndView doSearch(HttpServletRequest request) {
 		ModelAndView m = new ModelAndView("resultsPAGES.jsp");
@@ -84,24 +79,11 @@ public class WorkControler {
 		request.setAttribute("something", "we have arrived here");
 
 		String author = request.getParameter("search");
-		System.out.println("initilization");
-		System.out.println(author);
-		List<Work> works = workservice.findByAuthor(author);
-		System.out.println("after find by author");
-		ArrayList ary = (ArrayList) works;
 
-		System.out.println("arfter cast");
-		System.out.println(ary.size());
-		System.out.println("after size");
+		List<Work> works = workservice.findByAuthor(author);
+
 		ModelAndView m = new ModelAndView("resultsPage.jsp");
-		System.out.println("after model creation");
-		System.out.println("________");
-		System.out.println("________");
-		System.out.println("________");
-		System.out.println("________");
-		System.out.println(ary.size());
-		System.out.println("after size");
-		String g = works.get(0).getDescription();
+
 		m.addObject("listOfWorks", works);
 
 		return m;

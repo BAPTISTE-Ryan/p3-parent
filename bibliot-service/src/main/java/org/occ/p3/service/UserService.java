@@ -8,6 +8,5 @@ public interface UserService {
 	public User getUserByName(String userName);
 	public User getUserByPassword(Integer userPassword); 
 	public User saveNewUser(User user);
-
 	public boolean authentificate(String user,String password);
 }

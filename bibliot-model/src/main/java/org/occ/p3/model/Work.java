@@ -12,14 +12,12 @@ import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
-
 @Entity
-@Table(name="work")
+@Table(name = "work")
 public class Work {
-	
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(generator = "gen_work", strategy = GenerationType.IDENTITY)
 	@SequenceGenerator(name = "gen_work", sequenceName = "seq_work", allocationSize = 1)
@@ -30,10 +28,10 @@ public class Work {
 	private String title;
 	private String description;
 	private String coverimageurl;
-	
+
 	@OneToOne
 	private Library library;
-	
+
 	@OneToMany(fetch = FetchType.EAGER)
 	private List<Book> book;
 
@@ -108,7 +106,5 @@ public class Work {
 	public void setCoverimageurl(String coverimageurl) {
 		this.coverimageurl = coverimageurl;
 	}
-	
-	
-	
+
 }

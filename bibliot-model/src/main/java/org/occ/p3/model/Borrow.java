@@ -7,40 +7,34 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="borrow")
-public class Borrow  implements Serializable {
+@Table(name = "borrow")
+public class Borrow implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(generator = "gen_borrow", strategy = GenerationType.IDENTITY)
 	@SequenceGenerator(name = "gen_borrow", sequenceName = "seq_borrow", allocationSize = 1)
 	private Integer id;
-	
+
 	private Date startBorrowDate;
-	
+
 	private String status;
-	
+
 	private Date endBorrowDate;
-	
+
 	private boolean extended;
 
 	@OneToOne
 	private Book book;
-	
-	
-	private Integer userBorrowingId;
-	
 
+	private Integer userBorrowingId;
 
 	public Integer getId() {
 		return id;
@@ -49,8 +43,7 @@ public class Borrow  implements Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}
- 
-	
+
 	public Date getStartBorrowDate() {
 		return startBorrowDate;
 	}
@@ -74,9 +67,6 @@ public class Borrow  implements Serializable {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-
-
- 
 
 	public Integer getUserBorrowingId() {
 		return userBorrowingId;
@@ -105,5 +95,5 @@ public class Borrow  implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
-	
+
 }

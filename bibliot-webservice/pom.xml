@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
 	http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
@@ -20,9 +19,9 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		
+
 		<application.name>bibliot-webservice</application.name>
-		
+
 		<maven.build.timestamp.format>dd/MM/yyyy</maven.build.timestamp.format>
 		<build.timestamp>${maven.build.timestamp}</build.timestamp>
 		<!-- tools de gÃ©nÃ©ration WS pour OS Linux et Mac -->
@@ -85,16 +84,11 @@
 			<artifactId>bibliot-service</artifactId>
 		</dependency>
 		
-<!-- 		<dependency> -->
-<!-- 			<groupId>org.occ.p3</groupId> -->
-<!-- 			<artifactId>batchBatch</artifactId> -->
-<!-- 			<version>0.0.1-SNAPSHOT</version> -->
-<!-- 		</dependency> -->
- 
 		<dependency>
 			<groupId>org.occ.p3</groupId>
 			<artifactId>bibliot-model</artifactId>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.occ.p3</groupId>
 			<artifactId>bibliot-wsclient</artifactId>

@@ -15,30 +15,28 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="user")
+@Table(name = "user")
 @Inheritance(strategy = InheritanceType.JOINED)
-public class User  implements Serializable {
+public class User implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	 
 	@Id
 	@GeneratedValue(generator = "gen_user", strategy = GenerationType.IDENTITY)
 	@SequenceGenerator(name = "gen_user", sequenceName = "seq_user", allocationSize = 1)
-	 
+
 	private Integer id;
-	
+
 	private String userName;
-	
+
 	private String password;
-	
-	@OneToMany(fetch=FetchType.EAGER)
+
+	@OneToMany(fetch = FetchType.EAGER)
 	private List<Borrow> borrow;
-	
-	
+
 	public Integer getId() {
 		return id;
 	}
@@ -66,9 +64,9 @@ public class User  implements Serializable {
 	public List<Borrow> getBorrow() {
 		return borrow;
 	}
-	
+
 	public Integer getCurrentBorrows() {
-		Integer count=0;
+		Integer count = 0;
 		for (int i = 0; i < borrow.size(); i++) {
 			if (borrow.get(i).getStatus().equals("ENCOURS") || borrow.get(i).getStatus().equals("EXTENDED")) {
 				count++;
@@ -80,5 +78,5 @@ public class User  implements Serializable {
 	public void setBorrow(List<Borrow> borrow) {
 		this.borrow = borrow;
 	}
-	
+
 }

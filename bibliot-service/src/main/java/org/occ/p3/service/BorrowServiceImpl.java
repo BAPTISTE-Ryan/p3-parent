@@ -11,7 +11,7 @@ import org.occ.p3.model.Work;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date; 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -32,12 +32,10 @@ public class BorrowServiceImpl implements BorrowService {
 
 		// Recuperer le Work dont on connait l'ID (creer work repository)
 		Work myWorkGot = workRepository.findById(workId).get();
-		System.out.println("Id" + myWorkGot.getId() + " : " + myWorkGot.getTitle());
-
+		 
 		// recuperer la liste dans myborrowgot
 		List<Book> bookList = myWorkGot.getBook();
-		System.out.println("booklistsize :" + bookList.size() + " " + bookList.get(0).getId().toString());
-
+		 
 		// On parcours la bookList
 		for (Book result : bookList) {
 			if (result.isAvailable()) {
@@ -53,7 +51,8 @@ public class BorrowServiceImpl implements BorrowService {
 				borrowToSave.setStatus("ENCOURS");
 				// Save le borrow dans le repository
 				borrowRepository.save(borrowToSave);
-				// Indique que le livre n'est plus disponible et on sauvegarde dans le
+				// Indique que le livre n'est plus disponible et on sauvegarde
+				// dans le
 				// bookRepository
 				result.setAvailable(false);
 				bookRepository.save(result);
@@ -68,44 +67,38 @@ public class BorrowServiceImpl implements BorrowService {
 	}
 
 	public Boolean extendBorrow(Integer borrowId) {
-		
+
 		/*
-		valeur de retour a false
-		recupérer le borrow dont on connait lId
-		modifie le statut du borrow 
-		recalculer la date de restitution
-		sauvegarder en base
-		met la valeur de retour a true  */
+		 * valeur de retour a false recupérer le borrow dont on connait lId
+		 * modifie le statut du borrow recalculer la date de restitution
+		 * sauvegarder en base met la valeur de retour a true
+		 */
 		Boolean toReturn = false;
 
-		
 		Borrow borrow = borrowRepository.findById(borrowId).get();
-		if(!borrow.getStatus().equals("EXTENDED") && !borrow.getStatus().equals("TERMINE")) {
-		borrow.setExtended(true);
-		borrow.setStatus("EXTENDED");
-		//borrow.setEndBorrowDate(new Date());      should set a borrow date + 14 more days 
-		borrowRepository.save(borrow);
-		toReturn = true;
+		if (!borrow.getStatus().equals("EXTENDED") && !borrow.getStatus().equals("TERMINE")) {
+			borrow.setExtended(true);
+			borrow.setStatus("EXTENDED");
+			borrowRepository.save(borrow);
+			toReturn = true;
 		}
-		 
+
 		return toReturn;
 	}
 
 	public Boolean endBorrow(Integer borrowId) {
 		Boolean toReturn = false;
 
-		
-		
 		Borrow borrow = borrowRepository.findById(borrowId).get();
-		if(!borrow.getStatus().equals("TERMINE")) {
-		borrow.setStatus("TERMINE");
-		borrow.setEndBorrowDate(new Date());
-		borrow.getBook().setAvailable(true); 
-		bookRepository.save(borrow.getBook());
-		borrowRepository.save(borrow);
-		toReturn = true;
+		if (!borrow.getStatus().equals("TERMINE")) {
+			borrow.setStatus("TERMINE");
+			borrow.setEndBorrowDate(new Date());
+			borrow.getBook().setAvailable(true);
+			bookRepository.save(borrow.getBook());
+			borrowRepository.save(borrow);
+			toReturn = true;
 		}
-		 
+
 		return toReturn;
 	}
 }

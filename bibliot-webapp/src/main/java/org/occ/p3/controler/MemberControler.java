@@ -1,18 +1,13 @@
 package org.occ.p3.controler;
 
-import java.net.ConnectException;
-import java.util.ArrayList;
-import java.util.Hashtable;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.occ.p3.consumer.repository.UserRepository;
 import org.occ.p3.model.Borrow;
 import org.occ.p3.model.User;
 import org.occ.p3.service.BatchService;
- 
+
 import org.occ.p3.service.BorrowService;
 import org.occ.p3.service.MemberService;
 import org.occ.p3.service.UserService;
@@ -25,12 +20,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class MemberControler {
-	/*
-	 * SET @@global.time_zone = '+00:00'; SET @@session.time_zone = '+00:00';
-	 * SELECT @@global.time_zone, @@session.time_zone;
-	 */
-
-	// TODO PUT THESE THINGS IN THE CORRECT SERVICES
 
 	@Autowired
 	BorrowService borrowService;
@@ -38,9 +27,9 @@ public class MemberControler {
 	@Autowired
 	UserService userService;
 
-	@Autowired 
+	@Autowired
 	BatchService batchservice;
-	
+
 	@Autowired
 	MemberService memberservice;
 
@@ -54,10 +43,7 @@ public class MemberControler {
 	public ModelAndView loginPage(ModelMap model, HttpServletRequest request) {
 		ModelAndView m = new ModelAndView();
 
-		
- 
 		if (request.getSession().getAttribute("connected") != null) {
-			/* (boolean) request.getSession().getAttribute("connected") */
 			if (request.getSession().getAttribute("userId") != null) {
 
 				Integer globalUserMemberId = (Integer) request.getSession().getAttribute("userId");
@@ -68,35 +54,27 @@ public class MemberControler {
 				m.addObject("birthdate", memberservice.getMemberById(globalUserMemberId).getBirthdate());
 				m.addObject("email", memberservice.getMemberById(globalUserMemberId).getEmailadress());
 				m.addObject("profilepic", memberservice.getMemberById(globalUserMemberId).getProfilePicture());
-				if (memberservice.getMemberById(globalUserMemberId).getBorrow().size()!=0) {
+				if (memberservice.getMemberById(globalUserMemberId).getBorrow().size() != 0) {
 					List<Borrow> borrows = user.getBorrow();
 					m.addObject("listOfBorrows", borrows);
-					
+
 					m.addObject("firstBookTitleBorrow", "");
 					m.addObject("firstBookAuthorBorrow", "");
 					m.addObject("listOfBorrows", null);
 				}
 
-				
-
 				m.setViewName("userPAGES.jsp");
 
-				System.out.println("userPages");
-				System.out.println(memberservice.getMemberById(globalUserMemberId).getCurrentBorrows().toString());
 				request.getSession().setAttribute("currentBorrows",
 						memberservice.getMemberById((Integer) request.getSession().getAttribute("userId"))
 								.getCurrentBorrows().toString());
 			} else {
 
 				m.setViewName("loginPAGES.jsp");
-				System.out.println(" else user option connected: " + request.getSession().getAttribute("connected")
-						+ "userId: " + request.getSession().getAttribute("userId"));
 
 			}
 		} else {
 			m.setViewName("loginPAGES.jsp");
-			System.out.println("else connected option connected: " + request.getSession().getAttribute("connected")
-					+ " userId: " + request.getSession().getAttribute("userId"));
 		}
 
 		return m;
@@ -118,10 +96,7 @@ public class MemberControler {
 	@RequestMapping(value = "/userPage", method = RequestMethod.GET)
 	public ModelAndView user(ModelMap model, HttpServletRequest request) {
 		ModelAndView m = new ModelAndView("userPAGES.jsp");
-		System.out.println("before member");
-		System.out.println(memberservice.getMemberById(1).getName());
-		System.out.println(memberservice.getMemberByName("paul carino"));
-		System.out.println("aftermember");
+
 		m.addObject("member", memberservice.getMemberById(1).getName());
 		return m;
 	}

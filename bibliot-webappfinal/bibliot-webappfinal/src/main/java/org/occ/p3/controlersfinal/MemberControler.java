@@ -11,15 +11,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import org.occ.p3.webservice.Borrow;
-import org.occ.p3.webservice.BorrowWebService;
-import org.occ.p3.webservice.BorrowWebServiceWeb;
 import org.occ.p3.webservice.MemberWebService;
 import org.occ.p3.webservice.MemberWebServiceWeb;
 import org.occ.p3.webservice.User;
 import org.occ.p3.webservice.UserWebService;
 import org.occ.p3.webservice.UserWebServiceWeb;
-
- 
 
 @SuppressWarnings("unused")
 @Controller
@@ -35,17 +31,16 @@ public class MemberControler {
 	public ModelAndView loginPage(ModelMap model, HttpServletRequest request) {
 
 		UserWebServiceWeb userwebserviceweb = new UserWebServiceWeb();
-		UserWebService userService = userwebserviceweb.getUserWebServicePort();	
+		UserWebService userService = userwebserviceweb.getUserWebServicePort();
 
- 
 		MemberWebServiceWeb memberwebserviceweb = new MemberWebServiceWeb();
 		MemberWebService memberservice = memberwebserviceweb.getMemberWebServicePort();
-		userService.init();	
+		userService.init();
 		memberservice.init();
 		ModelAndView m = new ModelAndView();
 
 		if (request.getSession().getAttribute("connected") != null) {
-		
+
 			if (request.getSession().getAttribute("userId") != null) {
 
 				Integer globalUserMemberId = (Integer) request.getSession().getAttribute("userId");
@@ -56,33 +51,21 @@ public class MemberControler {
 				m.addObject("birthdate", memberservice.getMemberById(globalUserMemberId).getBirthdate());
 				m.addObject("email", memberservice.getMemberById(globalUserMemberId).getEmailadress());
 				m.addObject("profilepic", memberservice.getMemberById(globalUserMemberId).getProfilePicture());
-				if (memberservice.getMemberById(globalUserMemberId).getBorrow().size()!=0) {
+				if (memberservice.getMemberById(globalUserMemberId).getBorrow().size() != 0) {
 					List<Borrow> borrows = user.getBorrow();
 					m.addObject("listOfBorrows", borrows);
-					
+
 					m.addObject("firstBookTitleBorrow", "");
 					m.addObject("firstBookAuthorBorrow", "");
 					m.addObject("listOfBorrows", null);
 				}
-
-				
-
 				m.setViewName("userPAGES.jsp");
-
-				System.out.println("userPages");
 			} else {
-
 				m.setViewName("loginPAGES.jsp");
-				System.out.println(" else user option connected: " + request.getSession().getAttribute("connected")
-						+ "userId: " + request.getSession().getAttribute("userId"));
-
 			}
 		} else {
 			m.setViewName("loginPAGES.jsp");
-			System.out.println("else connected option connected: " + request.getSession().getAttribute("connected")
-					+ " userId: " + request.getSession().getAttribute("userId"));
 		}
-
 		return m;
 	}
 
@@ -90,9 +73,6 @@ public class MemberControler {
 	public ModelAndView exit(ModelMap model, HttpServletRequest request) {
 		ModelAndView m = new ModelAndView();
 
- 
-		 
-		
 		m.setViewName("loginPAGES.jsp");
 		request.getSession().setAttribute("connected", false);
 		request.getSession().setAttribute("userId", null);
@@ -108,13 +88,8 @@ public class MemberControler {
 		MemberWebServiceWeb memberwebserviceweb = new MemberWebServiceWeb();
 		MemberWebService memberservice = memberwebserviceweb.getMemberWebServicePort();
 		memberservice.init();
-		
-	 
+
 		ModelAndView m = new ModelAndView("userPAGES.jsp");
-		System.out.println("before member");
-		System.out.println(memberservice.getMemberById(1).getName());
- 
-		System.out.println("aftermember");
 		m.addObject("member", memberservice.getMemberById(1).getName());
 		return m;
 	}
@@ -123,13 +98,13 @@ public class MemberControler {
 	public ModelAndView authentificate(ModelMap model, HttpServletRequest request) {
 
 		UserWebServiceWeb userwebserviceweb = new UserWebServiceWeb();
-		UserWebService userService = userwebserviceweb.getUserWebServicePort();	
+		UserWebService userService = userwebserviceweb.getUserWebServicePort();
 		userService.init();
-		 
+
 		MemberWebServiceWeb memberwebserviceweb = new MemberWebServiceWeb();
 		MemberWebService memberservice = memberwebserviceweb.getMemberWebServicePort();
 		memberservice.init();
-	 
+
 		String userName = request.getParameter("user");
 		String password = request.getParameter("password");
 		ModelAndView toReturn = new ModelAndView();
@@ -145,14 +120,14 @@ public class MemberControler {
 
 			User user = userService.getUserById(userId);
 			List<Borrow> borrows = user.getBorrow();
-			toReturn.addObject("listOfBorrows", borrows);
-			request.getSession().setAttribute("userId", userId);
 
+			toReturn.addObject("listOfBorrows", borrows);
+
+			request.getSession().setAttribute("userId", userId);
 			request.getSession().setAttribute("userName", userName);
 			toReturn.addObject("message", "Connection sucessful with id" + userId);
 			toReturn.addObject("userName", "<div></div> <br> -> User :" + userName);
 			request.getSession().setAttribute("user", user);
-			.getCurrentBorrows().toString());
 
 		} else {
 			toReturn.setViewName("mainPAGES.jsp");
