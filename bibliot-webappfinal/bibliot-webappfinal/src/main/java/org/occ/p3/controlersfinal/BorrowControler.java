@@ -38,8 +38,7 @@ public class BorrowControler {
 		
 		ModelAndView modelAndViews = new ModelAndView();
 		Boolean borrowExtend = borrowService.extendBorrow(borrowId);
-		modelAndViews.addObject("feedBackBorrowMessage","le pr�t de  bien �t� prolong�");
-		//request.getSession().setAttribute("currentBorrows", memberservice.getMemberById((Integer) request.getSession().getAttribute("userId")).getCurrentBorrows().toString());
+		modelAndViews.addObject("feedBackBorrowMessage","le pret de  bien été prolongé");
 		System.out.println(borrowExtend);
 		modelAndViews.setViewName("/borrowlist");
 		return modelAndViews;
@@ -58,8 +57,7 @@ public class BorrowControler {
 		ModelAndView modelAndViews = new ModelAndView();
 		Boolean borrowEnd = borrowService.endBorrow(borrowId);
 		System.out.println(borrowEnd);
-		modelAndViews.addObject("feedBackBorrowMessage","le pr�t a bien �t� termin�");
-		//request.getSession().setAttribute("currentBorrows", memberservice.getMemberById((Integer) request.getSession().getAttribute("userId")).getCurrentBorrows().toString());
+		modelAndViews.addObject("feedBackBorrowMessage","le pret a bien été terminé");
 		modelAndViews.setViewName("/borrowlist");
 		return modelAndViews;
 	}
@@ -110,7 +108,7 @@ public class BorrowControler {
 		BorrowWebService borrowService = borrowwebserviceweb.getBorrowWebServicePort();
 		borrowService.init();
 	
-		System.out.println("workId r�cup�re = " + workId);
+		System.out.println("workId récupére = " + workId);
 		ModelAndView modelAndView = new ModelAndView();
 
 		Integer userId = (Integer) request.getSession().getAttribute("userId");
@@ -120,24 +118,23 @@ public class BorrowControler {
 		if (userId != null) {
 			userId = (int) userId;
 			System.out.println("id:" + userId);
-			// use a result page after the borrow
-			boolean borrowStatus = borrowService.borrowBook(workId, userId);
+		 boolean borrowStatus = borrowService.borrowBook(workId, userId);
 
 			if (borrowStatus == false) {
-				modelAndView.addObject("customMessage", "erreur sur le pr�t");
-				System.out.println("erreur sur le pr�t");
+				modelAndView.addObject("customMessage", "erreur sur le pret");
+				System.out.println("erreur sur le pret");
 				modelAndView.setViewName("errorPAGES.jsp");
 				return modelAndView;
 			}
 
 			modelAndView.setViewName("/borrowlist");
-			modelAndView.addObject("feedBackBorrowMessage", "Pr�t du livre r�ussi");
+			modelAndView.addObject("feedBackBorrowMessage", "Pret du livre réussi");
 
 		} else {
 			
 			String view = "loginPAGES.jsp";
 			
-			modelAndView.addObject("customMessage", "utilisateur non connect� et vue non retourn�");
+			modelAndView.addObject("customMessage", "utilisateur non connecté et vue non retourné");
 			
 			modelAndView.setViewName(view);
 		}
