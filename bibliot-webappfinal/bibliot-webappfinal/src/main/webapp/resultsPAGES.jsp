@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <title>results</title>
+  <title>Résultats de la recherche</title>
 </head>
 
 <body>
@@ -36,7 +36,7 @@
 					<div class="col-12 col-md-6">
 					
 <%-- 						<img src="${work.coverimageurl}" class="img-fluid" alt="${work.title}" --%>
-<!-- 							style="width: 250px; height: 300px;"> -->
+
 							
 							<img src="${work.coverimageurl}" class="img-rounded" alt="Cinque Terre"  style="width: 200px; height: 250px;">
 					</div>
@@ -49,8 +49,7 @@
 					</div>
 				</div>
 			</div>
-			<!--   <div class="panel-footer">Panel Footer -->
-			<!--   </div> -->
+	
 		</div>
 </div>
 
