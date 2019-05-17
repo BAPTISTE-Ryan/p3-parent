@@ -133,10 +133,22 @@ Il faut que les projets soient compilés sous la même version de java (à faire
 Dans le menu à gauche aller à Deployment Assembly puis Add>Java Build Path Entries et choisir Maven Dependencies (si possible). 
 
 (On compilera d’abord le projet p3-parent) en faisant les commandes mvn-clean et mvn-install dans eclipse en choisissant le projet p3-parent, puis après un clique droit aller dans le sous menu “Run as” puis choisir maven clean, puis maven install. 	
-Accéder a l’application glassfish en se rendant au lien http://localhost:4848 sur dans le menu à droite, cliquer sur l’item Applications puis sur le bouton Deploy, importer le war de bibliot-webservices, pour ce faire il faut copier le lien vers le war en allant dans l’IDE eclipse et faire un clique droit sur le projet “bibliot-webservices>target>bibliot-webservice-0.0.1-SNAPSHOT” puis aller à “show-in” puis “system explorer” qui ouvre l’explorateur système copier le lien puis retourner dans l'application glassfish et après avoir cliqué sur “choisir un fichier” coller le lien précédemment copié et choisir l’archive war. Dans “Context-root” mettre “/bibliot-webservice-new”, Dans “Application Name” mettre “bibliot-webservice-new” puis cliquer sur Ok.
+
+Accéder a l’application glassfish en se rendant au lien http://localhost:4848 sur dans le menu à droite, cliquer sur l’item Applications puis sur le bouton Deploy, importer le war de bibliot-webservices, pour ce faire il faut copier le lien vers le war en allant dans l’IDE eclipse et faire un clique droit sur le projet
+
+“bibliot-webservices>target>bibliot-webservice-0.0.1-SNAPSHOT” 
+
+
+puis aller à “show-in” puis “system explorer” qui ouvre l’explorateur système copier le lien puis retourner dans l'application glassfish et après avoir cliqué sur “choisir un fichier” coller le lien précédemment copié et choisir l’archive war. Dans “Context-root” mettre “/bibliot-webservice-new”, Dans “Application Name” mettre “bibliot-webservice-new” puis cliquer sur Ok.
+
 Dans l’IDE eclipse compiler le projet “bibliot-wsclient” “run as”>“maven clean”?“run as”>“maven generate-sources” puis “run as”>“maven install”
 
-Finalement compiler “bibliot-webappfinal” en faisant ces mêmes commandes MAVEN puis lancer l’application en cliquant sur le projet “bibliot-webappfinal”>”run as”>”run on server” et choisir le serveur de type tomcat 9 (la créer si elle n’existe pas) changer les ports de déploiement du serveur (on pourra prendre par exemple 18080 18005 18009) en allant dans l’onglet serveur de l’ide Eclipse,ouvrir la page de configuration de tomcat soit en double cliquant soit en faisant un clique droit>ouvrir. Naviguer vers le menu ports de l’écran et changer les numéros de ports et aussi augmenter les temps de timeouts ( par exemple de 45 à 60 secondes)
+Finalement compiler “bibliot-webappfinal” en faisant ces mêmes commandes MAVEN puis lancer l’application en cliquant sur le projet “bibliot-webappfinal”>”run as”>”run on server” et choisir le serveur de type tomcat 9 (la créer si elle n’existe pas) changer les ports de déploiement du serveur 
+
+(on pourra prendre par exemple 18080 18005 18009)
+
+en allant dans l’onglet serveur de l’ide Eclipse,ouvrir la page de configuration de tomcat soit en double cliquant soit en faisant un clique droit>ouvrir. 
+Naviguer vers le menu ports de l’écran et changer les numéros de ports et aussi augmenter les temps de timeouts ( par exemple de 45 à 60 secondes)
 
 La page d’accueil apparaît et la navigation sur le site peut commencer : la liste des identifiants (nom utilisateur/mot de passe) de connexion sont les suivantes:
 
