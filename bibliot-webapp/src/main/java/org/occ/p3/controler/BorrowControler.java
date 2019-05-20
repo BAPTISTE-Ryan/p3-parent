@@ -116,6 +116,7 @@ public class BorrowControler {
 		} else {
 			String view = "loginPAGES.jsp";
 			System.out.println(view);
+			System.out.println("");
 			modelAndView.addObject("customMessage", "utilisateur non connecté et vue non retourné");
 			System.out.println("no user was logged in ");
 			modelAndView.setViewName(view);
