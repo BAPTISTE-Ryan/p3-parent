@@ -1,7 +1,7 @@
 package org.occ.p3.controler;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.List;    
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -38,7 +38,7 @@ public class BorrowControler {
 			HttpServletRequest request) {
 		ModelAndView modelAndViews = new ModelAndView();
 		Boolean borrowExtend = borrowService.extendBorrow(borrowId);
-		modelAndViews.addObject("feedBackBorrowMessage", "le prêt de  bien été prolongé");
+		modelAndViews.addObject("feedBackBorrowMessage", "le prÃªt de  bien Ã©tÃ© prolongÃ©");
 		request.getSession().setAttribute("currentBorrows", memberservice
 				.getMemberById((Integer) request.getSession().getAttribute("userId")).getCurrentBorrows().toString());
 
@@ -51,7 +51,7 @@ public class BorrowControler {
 			HttpServletRequest request) {
 		ModelAndView modelAndViews = new ModelAndView();
 		Boolean borrowEnd = borrowService.endBorrow(borrowId);
-		modelAndViews.addObject("feedBackBorrowMessage", "le prêt a bien été terminé");
+		modelAndViews.addObject("feedBackBorrowMessage", "le prÃªt a bien Ã©tÃ© terminÃ©");
 		request.getSession().setAttribute("currentBorrows", memberservice
 				.getMemberById((Integer) request.getSession().getAttribute("userId")).getCurrentBorrows().toString());
 		modelAndViews.setViewName("/borrowlist");
@@ -83,12 +83,13 @@ public class BorrowControler {
 
 		return modelAndView;
 	}
+	
 
 	@RequestMapping(value = "/borrow", method = RequestMethod.GET, params = { "workId" })
 	public ModelAndView borrowing(@RequestParam(value = "workId", required = true) Integer workId,
 			HttpServletRequest request) {
 
-		System.out.println("workId récupére = " + workId);
+		System.out.println("workId rÃ©cupÃ©re = " + workId);
 		ModelAndView modelAndView = new ModelAndView();
 
 		Integer userId = (Integer) request.getSession().getAttribute("userId");
@@ -100,8 +101,8 @@ public class BorrowControler {
 			boolean borrowStatus = borrowService.borrowBook(workId, userId);
 
 			if (borrowStatus == false) {
-				modelAndView.addObject("customMessage", "erreur sur le prêt");
-				System.out.println("erreur sur le prêt");
+				modelAndView.addObject("customMessage", "erreur sur le prÃªt");
+				System.out.println("erreur sur le prÃªt");
 				modelAndView.setViewName("errorPAGES.jsp");
 				return modelAndView;
 			}
@@ -110,12 +111,12 @@ public class BorrowControler {
 					memberservice.getMemberById((Integer) request.getSession().getAttribute("userId"))
 							.getCurrentBorrows().toString());
 			modelAndView.setViewName("/borrowlist");
-			modelAndView.addObject("feedBackBorrowMessage", "Prêt du livre réussi");
+			modelAndView.addObject("feedBackBorrowMessage", "PrÃªt du livre rÃ©ussi");
 
 		} else {
 			String view = "loginPAGES.jsp";
 			System.out.println(view);
-			modelAndView.addObject("customMessage", "utilisateur non connecté et vue non retourné");
+			modelAndView.addObject("customMessage", "utilisateur non connectÃ© et vue non retournÃ©");
 			System.out.println("no user was logged in ");
 			modelAndView.setViewName(view);
 		}
